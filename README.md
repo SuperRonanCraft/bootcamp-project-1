@@ -1,4 +1,4 @@
-# NAME OF REPO
+# Project 1
 
 Visit [Deployment](LINK) on Github Pages  
 Source code to this project can be located [here](index.html)
