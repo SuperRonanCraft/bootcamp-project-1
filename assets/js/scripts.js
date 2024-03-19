@@ -1,3 +1,9 @@
-const h1El = document.querySelector('h1');
+// DEPENDENCIES (DOM Elements) =======================
 
-h1El.textContent = 'MovieMania';
+// DATA ==============================================
+
+// FUNCTIONS =========================================
+
+// USER INTERACTIONS =================================
+
+// INITIALIZATION ====================================
