@@ -21,3 +21,22 @@
   /* Paragrapgh */
   --paragraph-1: 1rem;
 }
+
+/* Setting font for all */
+* {
+  font-family: monospace;
+  font-weight: 400;
+  color: var(--fontColor);
+}
+
+/* Setting font size for heading */
+
+h1 {
+  font-size: var(--heading-1);
+}
+h2 {
+  font-size: var(--heading-2);
+}
+h3 {
+  font-size: var(--heading-3);
+}
