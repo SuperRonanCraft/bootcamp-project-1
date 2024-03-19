@@ -39,7 +39,9 @@ function processResults(data) {
   }
 }
 
-function fetchTrailer(imdbID) {}
+function fetchTrailer(imdbID) {
+  const url = `https://api.kinocheck.de/movies?imdb_id=${imdbID}&language=de`;
+}
 
 //Inits
 window.onload = () => {
