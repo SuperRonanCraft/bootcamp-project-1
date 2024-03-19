@@ -4,43 +4,28 @@
 	border: 1px solid red;
 }
 
-body {
-	display: flex;
-	flex-direction: column;
-}
-
 .header {
 	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 /* Movie Mania */
 #headerText {
-	position: absolute
-	width: 165px;
-	height: 39px;
-	left: calc(50% - 165px / 2 - 93.5px);
-	top: 11px;
+	flex: 0 0 50%;
 }
 
 /* BackToFirstPage */
 #back-button {
-position: absolute;
-width: 26.16px;
-height: 20px;
-left: 370px;
-top: 15px;
+	width: 26.16px;
+	height: 20px;
+	left: 370px;
+	top: 15px;
 
-background: url(arrow);
+	background: url(arrow);
+}
+
+.back-button-container {
+	flex: 0 0 50%;
 }
 /* Heading-2 */
-h2 {
-	font-family: "Cormorant Garamond";
-	font-style: normal;
-	font-weight: 400;
-	font-size: 32px;
-	line-height: 39px;
-	/* identical to box height */
-	text-align: center;
-
-	color: #ffffff;
-}
