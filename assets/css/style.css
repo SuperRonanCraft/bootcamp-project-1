@@ -1,1 +1,23 @@
+/* Settin roots */
 
+:root {
+  /* Colors======================= */
+  /* PrimaryBackround */
+  --primaryBackgroundColor: #f9da8a;
+  /* SecondaryBackround */
+  --secondaryBackgroundColor: #1e1f1e;
+  /* Fontcolor light */
+  --fontColor: #fdfcfc;
+  /* FontColor lighter*/
+  --fontColorLighter: #d4d3d1;
+  /* Font Size===================== */
+  /* Heading */
+  --heading-1: 4rem;
+  --heading-2: 2rem;
+  --heading-3: 1rem;
+  /* Title */
+  --title-1: 1rem;
+  --title-1: 0.8rem;
+  /* Paragrapgh */
+  --paragraph-1: 1rem;
+}
