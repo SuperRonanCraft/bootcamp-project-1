@@ -44,6 +44,8 @@ window.onload = () => {
   const url = new URL(location.href);
   //Get the search parameter
   const movieTitle = url.searchParams.get("s");
+  //Call fetch
+  fetchSearch(movieTitle);
 };
 
 //User Interactions
