@@ -5,12 +5,22 @@ const apiKey = "b0cdfcde";
 
 //Functions
 function fetchSearch(movieTitle) {
-  const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${movieTitle}&type=movie`;
+  const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${movieTitle}&type=movie`;
   fetch(url)
     .then((response) => {
       return response.json();
     })
-    .then((data) => {});
+    .then((data) => {
+      processResults(data);
+    });
 }
+
+function processResults(data) {
+  console.log(data);
+}
+
+window.onload = (event) => {
+  fetchSearch("avengers");
+};
 
 //User Interactions
