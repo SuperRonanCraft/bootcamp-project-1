@@ -1,8 +1,6 @@
 //Depends
 const apiKey = "b0cdfcde";
 
-//Data
-
 //Functions
 function fetchSearch(movieTitle) {
   const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${movieTitle}&type=movie`;
@@ -18,12 +16,22 @@ function fetchSearch(movieTitle) {
     });
 }
 
+//Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
-  console.log(data);
+  //   console.log(data);
+  for (const movieData of data.Search) {
+    const movie = {
+      //Movie Title
+      title: movieData.Title,
+      //Year
+      year: movieData.Year,
+      //IMDB id
+      imdb: movieData.imdbID,
+      //Poster URL
+      poster: movieData.Poster,
+    };
+    console.log(movie);
+  }
 }
-
-window.onload = (event) => {
-  fetchSearch("ave4234234ngers");
-};
 
 //User Interactions
