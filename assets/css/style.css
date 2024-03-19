@@ -17,7 +17,7 @@
   --heading-3: 1rem;
   /* Title */
   --title-1: 1rem;
-  --title-1: 0.8rem;
+  --title-2: 0.8rem;
   /* Paragrapgh */
   --paragraph-1: 1rem;
 }
@@ -39,4 +39,10 @@ h2 {
 }
 h3 {
   font-size: var(--heading-3);
+}
+
+/* Settin font size for paragraph */
+
+p {
+  font-size: var(--paragraph-1);
 }
