@@ -38,4 +38,7 @@ function processResults(data) {
   }
 }
 
+//Inits
+window.onload = () => {};
+
 //User Interactions
