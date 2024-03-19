@@ -39,7 +39,16 @@
               <img src="./assets/images/avengers.jpg">
              
               <!-- Model button -->
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="tiny material-icons">play_arrow</i></a>
+              <a class="btn-floating halfway-fab waves-effect waves-light red  modal-trigger" href="#modal1"><i class="tiny material-icons">play_arrow</i></a>
+              <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <video height="auto" controls="controls" preload="none" onclick="this.play()">
+                      <source type="video/mp4" src="./assets/images/Marvel's The Avengers- Trailer (OFFICIAL).mp4">
+                     </video>
+                     
+                  </div>
+                </div>
             </div>
             
             <!-- Movie about card -->
@@ -76,6 +85,7 @@
     </footer>
 
     <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/search-results.js"></script>
   </body>
