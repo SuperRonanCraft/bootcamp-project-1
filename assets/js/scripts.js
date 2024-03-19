@@ -1,5 +1,5 @@
 // DEPENDENCIES (DOM Elements) =======================
-const searchButton = document.querySelector('#button-search');
+const searchButton = document.querySelector('#submitButton');
 const textInput = document.querySelector('#text-input');
 
 // DATA ==============================================
