@@ -1,94 +1,93 @@
 /* Settin roots */
 
 :root {
-	/* Colors======================= */
-	/* PrimaryBackround */
-	--primaryBackgroundColor: #f9da8a;
-	/* SecondaryBackround */
-	--secondaryBackgroundColor: #1e1f1e;
-	/* Fontcolor light */
-	--fontColor: #fdfcfc;
-	/* FontColor lighter*/
-	--fontColorLighter: #d4d3d1;
-	/* Font Size===================== */
-	/* Heading */
-	--heading-1: 4rem;
-	--heading-2: 2rem;
-	--heading-3: 1rem;
-	/* Title */
-	--title-1: 1rem;
-	--title-2: 0.8rem;
-	/* Paragrapgh */
-	--paragraph-1: 1rem;
+  /* Colors======================= */
+  /* PrimaryBackround */
+  --primaryBackgroundColor: #f9da8a;
+  /* SecondaryBackround */
+  --secondaryBackgroundColor: #1e1f1e;
+  /* Fontcolor light */
+  --fontColor: #fdfcfc;
+  /* FontColor lighter*/
+  --fontColorLighter: #d4d3d1;
+  /* Font Size===================== */
+  /* Heading */
+  --heading-1: 4rem;
+  --heading-2: 2rem;
+  --heading-3: 1rem;
+  /* Title */
+  --title-1: 1rem;
+  --title-2: 0.8rem;
+  /* Paragrapgh */
+  --paragraph-1: 1rem;
 }
 
 /* Setting font for all */
 * {
-	font-family: monospace;
-	font-weight: 400;
-	color: var(--fontColor);
-	background-color: var(--primaryBackgroundColor);
+  font-family: monospace;
+  font-weight: 400;
+  color: var(--fontColor);
+  background-color: var(--primaryBackgroundColor);
 }
 
 /* Setting font size for heading */
 
 h1 {
-	font-size: var(--heading-1);
+  font-size: var(--heading-1);
 }
 h2 {
-	font-size: var(--heading-2);
+  font-size: var(--heading-2);
 }
 h3 {
-	font-size: var(--heading-3);
+  font-size: var(--heading-3);
 }
 
 /* Settin font size for paragraph */
 
 p {
-	font-size: var(--paragraph-1);
+  font-size: var(--paragraph-1);
 }
 
 /* Landing Page */
 
 /* Main section  */
 .main {
-	/* Display flex, all the content will align on column */
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: column;
-	height: 100vh;
-	width: 100%;
-	margin-top: 100px;
+  /* Display flex, all the content will align on column */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  margin-top: 100px;
 }
 .submitButton-wrapper {
-	/* Inside warapper we are positing input text and sumbit button */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: var(--fontColor);
-	width: 280px;
-	height: 50px;
-	border-radius: 20px;
+  /* Inside warapper we are positing input text and sumbit button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fontColor);
+  width: 280px;
+  height: 50px;
+  border-radius: 20px;
 }
 /* Text input,(Search area) */
-.submitButton-wrapper input {
-	background-color: transparent;
-	color: var(--secondaryBackgroundColor);
-	border: none;
-	margin-right: 20px;
-	padding: 5px;
+.submitButton-wrapper #text-input {
+  background-color: transparent;
+  color: var(--secondaryBackgroundColor);
+  border: none;
+  margin-right: 20px;
+  padding: 5px;
 }
 
 /* Submit button */
-.submitButton {
-	border-radius: 20px;
-	padding: 5px;
-	border: none;
-	cursor: pointer;
+.submitButton-wrapper .submitButton {
+  border-radius: 20px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
 }
-/* Img scale */
 #popcornImg {
-	height: 500px;
-	width: 400px;
+  height: 500px;
+  width: 400px;
 }

@@ -1,31 +1,5 @@
 /* Header */
 
-* {
-	border: 1px solid red;
-}
-
-.header {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-/* Movie Mania */
-#headerText {
-	flex: 0 0 50%;
-}
-
-/* BackToFirstPage */
-#back-button {
-	width: 26.16px;
-	height: 20px;
-	left: 370px;
-	top: 15px;
-
-	background: url(arrow);
-}
-
-.back-button-container {
-	flex: 0 0 50%;
-}
-/* Heading-2 */
+/* * {
+  border: 1px solid red;
+} */
