@@ -34,7 +34,7 @@
 
 /* Image card content It will divede to 3 parts */
 .img-card-wrapper .card-content {
-  display: flex;
+  display: none;
   justify-content: flex-start;
   align-items: start;
   flex-direction: column;
@@ -43,6 +43,11 @@
   background-color: var(--secondaryBackgroundColor);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  transition: all ease 2s; /* Corrected typo */
+}
+
+.img-card-wrapper .card:hover .card-content {
+  display: flex;
 }
 
 /* 1st part will contain Movie Title and Genres */
