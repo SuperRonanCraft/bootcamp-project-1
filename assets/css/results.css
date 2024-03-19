@@ -1,3 +1,5 @@
+@import url('./style.css');
+
 /* Header */
 
 /* * {
@@ -6,9 +8,83 @@
 
 .img-card-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 80px;
 }
 
 .card {
+  height: 300px;
   width: 400px;
-  height: 400px;
+  border-radius: 20px;
+}
+.card-image {
+  height: 100%;
+}
+.card-image img {
+  height: 100%;
+}
+
+.img-card-wrapper .card-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  flex-direction: column;
+  padding: 3px;
+  height: 100%;
+  background-color: var(--secondaryBackgroundColor);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.card-content h2 {
+  background-color: var(--secondaryBackgroundColor);
+  margin-top: 30px;
+  padding: 10px;
+}
+.card-content .genre-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  text-align: center;
+  background-color: var(--secondaryBackgroundColor);
+}
+
+.card-content .genre-container p {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  color: var(--secondaryBackgroundColor);
+}
+.card-content .title-wrapper {
+  background-color: var(--secondaryBackgroundColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.diveder {
+  position: absolute;
+  top: 400px;
+  left: 20px;
+  width: 90%;
+  height: 2px;
+  background-color: #eee;
+}
+
+.card-content .movie-summary-wrapper {
+  background-color: var(--secondaryBackgroundColor);
+}
+
+.card-content .movie-summary-wrapper p {
+  background-color: var(--secondaryBackgroundColor);
+  margin-top: 60px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.btn-floating i {
+  background: transparent;
 }
