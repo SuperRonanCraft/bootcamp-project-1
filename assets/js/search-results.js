@@ -39,6 +39,11 @@ function processResults(data) {
 }
 
 //Inits
-window.onload = () => {};
+window.onload = () => {
+  //Generate a URL object
+  const url = new URL(location.href);
+  //Get the search parameter
+  const movieTitle = url.searchParams.get("s");
+};
 
 //User Interactions
