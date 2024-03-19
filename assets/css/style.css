@@ -47,3 +47,48 @@ h3 {
 p {
   font-size: var(--paragraph-1);
 }
+
+/* Landing Page */
+
+/* Main section  */
+.main {
+  /* Display flex, all the content will align on column */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  margin-top: 100px;
+}
+.submitButton-wrapper {
+  /* Inside warapper we are positing input text and sumbit button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fontColor);
+  width: 280px;
+  height: 50px;
+  border-radius: 20px;
+}
+/* Text input,(Search area) */
+.submitButton-wrapper input {
+  background-color: transparent;
+  color: var(--secondaryBackgroundColor);
+  border: none;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+/* Submit button */
+.submitButton {
+  border-radius: 20px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+/* Img scale */
+#popcornImg {
+  height: 500px;
+  width: 400px;
+}
