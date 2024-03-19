@@ -11,7 +11,10 @@ function fetchSearch(movieTitle) {
       return response.json();
     })
     .then((data) => {
-      processResults(data);
+      if (data.Response === "True") processResults(data);
+      else {
+        //Error page redirect
+      }
     });
 }
 
@@ -20,7 +23,7 @@ function processResults(data) {
 }
 
 window.onload = (event) => {
-  fetchSearch("avengers");
+  fetchSearch("ave4234234ngers");
 };
 
 //User Interactions
