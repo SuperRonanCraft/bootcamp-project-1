@@ -1,3 +1,5 @@
+/* Linking style.css to user root variables */
+
 @import url('./style.css');
 
 /* Header */
@@ -6,6 +8,7 @@
   border: 1px solid red;
 } */
 
+/* Card wrapper */
 .img-card-wrapper {
   display: flex;
   justify-content: center;
@@ -14,18 +17,22 @@
   margin-top: 80px;
 }
 
+/* Card size */
 .card {
   height: 300px;
   width: 400px;
   border-radius: 20px;
 }
+/* card-Image height */
 .card-image {
   height: 100%;
 }
+/* Image will cover the content */
 .card-image img {
   height: 100%;
 }
 
+/* Image card content It will divede to 3 parts */
 .img-card-wrapper .card-content {
   display: flex;
   justify-content: flex-start;
@@ -38,11 +45,22 @@
   border-bottom-right-radius: 20px;
 }
 
+/* 1st part will contain Movie Title and Genres */
+.card-content .title-wrapper {
+  background-color: var(--secondaryBackgroundColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* Movie title */
 .card-content h2 {
   background-color: var(--secondaryBackgroundColor);
   margin-top: 30px;
   padding: 10px;
 }
+
+/* Genre continaer */
 .card-content .genre-container {
   display: flex;
   justify-content: space-between;
@@ -51,20 +69,17 @@
   background-color: var(--secondaryBackgroundColor);
 }
 
+/* Genre Paraghraph */
 .card-content .genre-container p {
   margin: 10px;
   padding: 10px;
   border-radius: 20px;
   color: var(--secondaryBackgroundColor);
 }
-.card-content .title-wrapper {
-  background-color: var(--secondaryBackgroundColor);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
 
+/* Second part will be diveder */
+
+/* Divder */
 .diveder {
   position: absolute;
   top: 400px;
@@ -73,7 +88,9 @@
   height: 2px;
   background-color: #eee;
 }
+/* Third part will be Movie summary */
 
+/* Summary  */
 .card-content .movie-summary-wrapper {
   background-color: var(--secondaryBackgroundColor);
 }
