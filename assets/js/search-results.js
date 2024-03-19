@@ -39,6 +39,8 @@ function processResults(data) {
   }
 }
 
+function fetchTrailer(imdbID) {}
+
 //Inits
 window.onload = () => {
   //Generate a URL object
