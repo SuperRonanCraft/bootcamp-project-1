@@ -18,5 +18,6 @@ function handleFormSubmit(event) {
 }
 
 // USER INTERACTIONS =================================
+searchButton.addEventListener('click', handleFormSubmit);
 
 // INITIALIZATION ====================================
