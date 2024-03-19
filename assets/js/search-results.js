@@ -36,7 +36,37 @@ function processResults(data) {
     };
     console.log(movie);
     //Call to create element based off movie results
+    if (movieData === data.Search[0]) fetchTrailer(movie.imdb);
   }
+}
+
+function fetchTrailer(imdbID) {
+  const url = `https://api.kinocheck.de/movies?imdb_id=${imdbID}&language=en`;
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      processTrailer(data);
+    });
+}
+
+function processTrailer(data) {
+  const trailerInfo = data.trailer;
+  const trailer = {
+    exist: false,
+  };
+  if (trailerInfo) {
+    const trailer = {
+      exist: true,
+      thumbnail: trailerInfo.thumbnail,
+      videoID: trailerInfo.youtube_video_id,
+    };
+    console.log(trailer);
+  } else {
+    //Error message/popup
+  }
+  console.log(data);
 }
 
 //Inits
