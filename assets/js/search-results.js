@@ -40,7 +40,14 @@ function processResults(data) {
 }
 
 function fetchTrailer(imdbID) {
-  const url = `https://api.kinocheck.de/movies?imdb_id=${imdbID}&language=de`;
+  const url = `https://api.kinocheck.de/movies?imdb_id=${imdbID}&language=en`;
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      //
+    });
 }
 
 //Inits
