@@ -13,6 +13,9 @@ function handleFormSubmit(event) {
   // assign value from
   location.assign(`${src}?s=${textInput.value}`);
 
+  // Settin user inpu value to local storage
+  localStorage.setItem('Movies', textInput.value);
+
   // reset input field
   textInput.value = '';
 }
