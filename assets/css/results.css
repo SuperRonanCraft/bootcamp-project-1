@@ -3,3 +3,12 @@
 /* * {
   border: 1px solid red;
 } */
+
+.img-card-wrapper {
+  display: flex;
+}
+
+.card {
+  width: 400px;
+  height: 400px;
+}
