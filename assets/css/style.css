@@ -27,6 +27,7 @@
   font-family: monospace;
   font-weight: 400;
   color: var(--fontColor);
+  background-color: var(--primaryBackgroundColor);
 }
 
 /* Setting font size for heading */
