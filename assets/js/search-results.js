@@ -4,6 +4,7 @@ const apiKey = "b0cdfcde";
 //Functions
 //Call OMDB and return a list of movie results
 function fetchSearch(movieTitle) {
+  console.log(`Fetching OMDB for movies related to ${movieTitle}`);
   //Api url
   const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${movieTitle}&type=movie`;
   fetch(url)
@@ -45,7 +46,10 @@ window.onload = () => {
   //Get the search parameter
   const movieTitle = url.searchParams.get("s");
   //Call fetch
-  fetchSearch(movieTitle);
+  if (movieTitle !== null) fetchSearch(movieTitle);
+  else {
+    //Error message/popup
+  }
 };
 
 //User Interactions
