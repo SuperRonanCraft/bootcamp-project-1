@@ -69,6 +69,9 @@ function processTrailer(data) {
       videoID: trailerInfo.youtube_video_id,
     };
     console.log(trailer);
+    /* DEBUG CODE */
+    setYoutubeIFrame("modal", trailer.youtube_video_id);
+    /**/
   } else {
   }
   console.log(data);
@@ -126,6 +129,23 @@ function handleFormSubmit(event) {
   localStorage.setItem("Movies", textInput.value);
   // reset input field
   textInput.value = "";
+}
+
+//Youtube IFrame Video
+function setYoutubeIFrame(elementID, videoID) {
+  new YT.Player(elementID, {
+    height: "390",
+    width: "640",
+    videoId: videoID,
+    playerVars: {
+      playsinline: 1,
+    },
+    events: {
+      onReady: (event) => {
+        console.log(event);
+      },
+    },
+  });
 }
 
 // Model
