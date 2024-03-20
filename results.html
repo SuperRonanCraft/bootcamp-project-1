@@ -34,7 +34,7 @@
             <!-- Card content -->
             <div class="card-image">
               <!-- Movie img -->
-              <img src="./assets/images/avengers.jpg" />
+              <img id="movie-image" />
               <!-- Model button -->
               <a
                 class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
@@ -44,10 +44,10 @@
               <!-- Modal Structure -->
               <div id="modal1" class="modal">
                 <div class="modal-content">
-                  <video height="auto" controls="controls" preload="none" onclick="this.play()">
-                    <source
+                  <video  height="auto" controls="controls" preload="none" onclick="this.play()">
+                    <source id="movie-video"
                       type="video/mp4"
-                      src="./assets/images/Marvel's The Avengers- Trailer (OFFICIAL).mp4" />
+                       />
                   </video>
                 </div>
               </div>
@@ -61,8 +61,7 @@
                 <!-- Genre Container -->
                 <div class="genre-container" id="genre-container">
                   <!-- Genre titles -->
-                  <p id="genre-1">Action</p>
-                  <p id="genre-2">Sci-Fi</p>
+                  <p id="genre-1"></p>
                 </div>
               </div>
               <!-- Divider -->

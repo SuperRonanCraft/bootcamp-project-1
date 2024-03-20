@@ -1,6 +1,10 @@
 //Depends
 const apiKey = 'b0cdfcde';
 const searchResultsEL = document.querySelector('#search-results');
+const movieVideo = document.querySelector('#movie-video');
+const movieImage = document.querySelector('#movie-image');
+const movieTitle = document.querySelector('#movie-title');
+const movieYear = document.querySelector('#genre-1');
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -35,6 +39,9 @@ function processResults(data) {
       //Poster URL
       poster: movieData.Poster,
     };
+    movieTitle.textContent = movie.title;
+    movieYear.textContent = movie.year;
+    movieImage.setAttribute('src', movie.poster);
     console.log(movie);
     //Call to create element based off movie results
     if (movieData === data.Search[0]) fetchTrailer(movie.imdb);
@@ -63,6 +70,10 @@ function processTrailer(data) {
       thumbnail: trailerInfo.thumbnail,
       videoID: trailerInfo.youtube_video_id,
     };
+    movieVideo.setAttribute(
+      'src',
+      `https://youtube.com/watch?v=${trailer.videoID}&ab_channel=KinoCheck.com`
+    );
     console.log(trailer);
   } else {
     //Error message/popup
