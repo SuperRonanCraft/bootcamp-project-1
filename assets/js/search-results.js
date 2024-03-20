@@ -95,17 +95,6 @@ function displaySearchResults(data) {
               <!-- Modal Structure -->
               <div id="modal1" class="modal">
                 <div class="modal-content">
-                  <video
-                    height="auto"
-                    controls="controls"
-                    preload="none"
-                    onclick="this.play()"
-                  >
-                    <source
-                      type="video/mp4"
-                      src="./assets/images/Marvel's The Avengers- Trailer (OFFICIAL).mp4"
-                    />
-                  </video>
                 </div>
               </div>
             </div>
