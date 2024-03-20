@@ -1,6 +1,6 @@
 //Depends
 const apiKey = 'b0cdfcde';
-const searchResultsEL = document.querySelector('#search-results');
+const searchResultsEl = document.querySelector('#search-results');
 
 //Functions
 //Call OMDB and return a list of movie results
