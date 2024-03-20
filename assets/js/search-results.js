@@ -1,6 +1,7 @@
 //Depends
 const apiKey = "b0cdfcde";
-const searchResultsEL = document.querySelector("#search-results");
+const searchResultsEl = document.querySelector("#search-results");
+const searchButton = document.querySelector("#submitButton");
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -23,7 +24,7 @@ function fetchSearch(movieTitle) {
 
 //Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
-  //Call to delete all previous search results
+  // TODO: pCall to delete all previous search results
   for (const movieData of data.Search) {
     const movie = {
       //Movie Title
@@ -101,6 +102,15 @@ function displaySearchResults(data) {
   divCardBody2El.appendChild(p2El);
 }
 
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const searchInput = textInput.value;
+  fetchSearch(searchInput);
+
+  // reset input field
+  textInput.value = "";
+}
+
 // Model
 $(document).ready(function () {
   $(".modal").modal();
@@ -121,5 +131,6 @@ window.onload = () => {
 };
 
 //User Interactions
+searchButton.addEventListener("click", handleFormSubmit);
 
 // INITIALIZATIONS
