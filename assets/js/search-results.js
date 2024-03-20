@@ -62,7 +62,7 @@ function processTrailer(data) {
   const trailer = {
     exist: false,
   };
-  if (trailerInfo) {
+  if (trailerInfo !== null) {
     const trailer = {
       exist: true,
       thumbnail: trailerInfo.thumbnail,
@@ -72,6 +72,9 @@ function processTrailer(data) {
     setYoutubeIFrame(trailer.videoID);
     /**/
   } else {
+    /*
+    No Trailer Error
+    */
   }
   console.log(data);
 }
@@ -125,10 +128,11 @@ function handleFormSubmit(event) {
   textInput.value = "";
 }
 
+let player;
 //Youtube IFrame Video
 function setYoutubeIFrame(videoID) {
   console.log(videoID);
-  new YT.Player("trailer-video", {
+  player = new YT.Player("trailer-video", {
     height: "390",
     width: "640",
     videoId: videoID,
@@ -147,6 +151,9 @@ function openModalEvent(event) {
   /*Kadirs modal stuff*/
   /* */
 }
+function closeModalEvent(event) {
+  player.stopVideo();
+}
 
 // Modal Open Event
 document.addEventListener("DOMContentLoaded", function () {
@@ -154,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const elems = document.querySelectorAll(".modal");
   const options = {
     onOpenStart: openModalEvent,
+    onCloseEnd: closeModalEvent,
   };
   M.Modal.init(elems, options);
 });
