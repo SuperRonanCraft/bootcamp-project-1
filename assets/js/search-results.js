@@ -27,7 +27,7 @@ function fetchSearch(movieTitle) {
 //Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
   // delete previous search results
-  searchResultsEl.textContent = '';
+  searchResultsEl.textContent = "";
 
   for (const movieData of data.Search) {
     const movie = {
@@ -41,7 +41,7 @@ function processResults(data) {
       poster: movieData.Poster,
     };
     console.log(movie);
-    //Call to create element based off movie results
+    displaySearchResults(movie.imdb);
     if (movieData === data.Search[0]) fetchTrailer(movie.imdb);
   }
 }
@@ -112,7 +112,7 @@ function handleFormSubmit(event) {
   // insert searchinput as a parameter
   fetchSearch(searchInput);
   // Set user input value to local storage
-  localStorage.setItem('Movies', textInput.value);
+  localStorage.setItem("Movies", textInput.value);
   // reset input field
   textInput.value = "";
 }
