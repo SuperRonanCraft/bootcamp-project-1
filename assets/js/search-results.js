@@ -1,5 +1,6 @@
 //Depends
 const apiKey = 'b0cdfcde';
+const searchResultsEL = document.querySelector('#search-results');
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -69,6 +70,16 @@ function processTrailer(data) {
   console.log(data);
 }
 
+function displaySearchResults(data) {
+  // BUILD
+  const divRow = document.createElement('div');
+  const divCardBodyEl = document.createElement('div');
+  const imgEl = document.createElement('img');
+  const divCardBody2El = document.createElement('div');
+  const pEl = document.createElement('p');
+  const p2El = document.createElement('p');
+}
+
 // Model
 $(document).ready(function () {
   $('.modal').modal();
@@ -78,6 +89,7 @@ $(document).ready(function () {
 window.onload = () => {
   //Generate a URL object
   const url = new URL(location.href);
+
   //Get the search parameter
   const movieTitle = url.searchParams.get('s');
   //Call fetch
@@ -88,3 +100,5 @@ window.onload = () => {
 };
 
 //User Interactions
+
+// INITIALIZATIONS
