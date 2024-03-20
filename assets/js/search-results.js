@@ -81,7 +81,7 @@ function displaySearchResults(data) {
   let imageCardContent = "";
 
   for (const result of data) {
-    imageCardContent += `<div class="img-card-wrapper">
+    imageCardContent += `<div class="img-card-wrapper" id="${result.imdb}">
           <!-- Image card box -->
           <div class="card">
             <!-- Card content -->
@@ -127,8 +127,8 @@ function handleFormSubmit(event) {
 }
 
 //Youtube IFrame Video
-function setYoutubeIFrame(elementID, videoID) {
-  new YT.Player(elementID, {
+function setYoutubeIFrame(videoID) {
+  var player = new YT.Player("trailer-video", {
     height: "390",
     width: "640",
     videoId: videoID,
@@ -137,7 +137,7 @@ function setYoutubeIFrame(elementID, videoID) {
     },
     events: {
       onReady: (event) => {
-        console.log(event);
+        event.target.playVideo();
       },
     },
   });
@@ -159,8 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 searchResultsEl.addEventListener("click", (event) => {
-  console.dir(event.target.parentElement);
-  console.log(event.target.parentElement.dataset);
+  const imdbID = event.target.dataset.imdb;
+  setYoutubeIFrame(imdbID);
 });
 
 //Inits
