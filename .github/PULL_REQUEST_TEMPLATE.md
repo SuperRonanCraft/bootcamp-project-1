@@ -11,7 +11,7 @@ Please provide an overview of code changes, especially key files and areas of si
 - path/to/file
   - change
   - change
-  - chage
+  - change
 
 ## Steps to Reproduce or Test
 
