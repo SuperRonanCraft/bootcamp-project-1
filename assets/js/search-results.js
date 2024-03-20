@@ -23,7 +23,7 @@ function fetchSearch(movieTitle) {
 
 //Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
-  //Call to delete all previous search results
+  // TODO: pCall to delete all previous search results
   for (const movieData of data.Search) {
     const movie = {
       //Movie Title
@@ -100,6 +100,15 @@ function displaySearchResults(data) {
   divRow.appendChild(divCardBody2El);
   divCardBody2El.appendChild(pEl);
   divCardBody2El.appendChild(p2El);
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const searchInput = textInput.value;
+  fetchSearch(searchInput);
+
+  // reset input field
+  textInput.value = '';
 }
 
 // Model
