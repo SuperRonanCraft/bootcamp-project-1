@@ -40,7 +40,7 @@ function processResults(data) {
       //Poster URL
       poster: movieData.Poster,
     };
-    console.log(movie);
+    // console.log(movie);
     movies.push(movie);
   }
   displaySearchResults(movies);
@@ -68,9 +68,8 @@ function processTrailer(data) {
       thumbnail: trailerInfo.thumbnail,
       videoID: trailerInfo.youtube_video_id,
     };
-    console.log(trailer);
     /* DEBUG CODE */
-    setYoutubeIFrame("modal", trailer.youtube_video_id);
+    setYoutubeIFrame(trailer.videoID);
     /**/
   } else {
   }
@@ -128,7 +127,8 @@ function handleFormSubmit(event) {
 
 //Youtube IFrame Video
 function setYoutubeIFrame(videoID) {
-  var player = new YT.Player("trailer-video", {
+  console.log(videoID);
+  new YT.Player("trailer-video", {
     height: "390",
     width: "640",
     videoId: videoID,
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 searchResultsEl.addEventListener("click", (event) => {
   const imdbID = event.target.dataset.imdb;
-  setYoutubeIFrame(imdbID);
+  fetchTrailer(imdbID);
 });
 
 //Inits
