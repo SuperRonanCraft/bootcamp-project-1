@@ -27,7 +27,7 @@ function fetchSearch(movieTitle) {
 //Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
   // delete previous search results
-  searchResultsEl.textContent = '';
+  // searchResultsEl.textContent = "";
 
   for (const movieData of data.Search) {
     const movie = {
@@ -41,8 +41,6 @@ function processResults(data) {
       poster: movieData.Poster,
     };
     console.log(movie);
-    //Call to create element based off movie results
-    if (movieData === data.Search[0]) fetchTrailer(movie.imdb);
   }
 }
 
@@ -112,14 +110,23 @@ function handleFormSubmit(event) {
   // insert searchinput as a parameter
   fetchSearch(searchInput);
   // Set user input value to local storage
-  localStorage.setItem('Movies', textInput.value);
+  localStorage.setItem("Movies", textInput.value);
   // reset input field
   textInput.value = "";
 }
 
-// Model
-$(document).ready(function () {
-  $(".modal").modal();
+// Modal
+document.addEventListener("DOMContentLoaded", function () {
+  const elems = document.querySelectorAll(".modal");
+  const options = {
+    onOpenStart: (event) => {
+      console.log(event.parentElement);
+      // const parent = event.target.parent();
+      // console.log(parent);
+      // fetchTrailer()
+    },
+  };
+  var instances = M.Modal.init(elems, options);
 });
 
 //Inits
