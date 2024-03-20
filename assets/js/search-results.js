@@ -1,5 +1,6 @@
 //Depends
 const apiKey = "b0cdfcde";
+const searchResultsEL = document.querySelector("#search-results");
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -68,6 +69,38 @@ function processTrailer(data) {
   console.log(data);
 }
 
+function displaySearchResults(data) {
+  // BUILD
+  const divRow = document.createElement("div");
+  const divCardBodyEl = document.createElement("div");
+  const imgEl = document.createElement("img");
+  const divCardBody2El = document.createElement("div");
+  const pEl = document.createElement("p");
+  const p2El = document.createElement("p");
+
+  // CREATE
+  divRow.setAttribute("class", "row");
+  divCardBodyEl.setAttribute("class", "col-6");
+  imgEl.setAttribute("id", "movie-image-small");
+  imgEl.setAttribute("alt", "movie image");
+  imgEl.setAttribute("aria-label", "small movie image");
+  divCardBody2El.setAttribute("class", "col-6");
+  pEl.setAttribute("id", "movie-name");
+  p2El.setAttribute("id", "movie-year");
+
+  pEl.textContent = `${data.title}`; // add movie name
+  p2El.textContent = `${data.year}`; // add movie year
+
+  // PLACE
+  searchResultsEl.appendChild(divRow);
+  divRow.appendChild(divCardBodyEl);
+  // place image to the left of movie information
+  divCardBodyEl.appendChild(imgEl);
+  divRow.appendChild(divCardBody2El);
+  divCardBody2El.appendChild(pEl);
+  divCardBody2El.appendChild(p2El);
+}
+
 // Model
 $(document).ready(function () {
   $(".modal").modal();
@@ -77,6 +110,7 @@ $(document).ready(function () {
 window.onload = () => {
   //Generate a URL object
   const url = new URL(location.href);
+
   //Get the search parameter
   const movieTitle = url.searchParams.get("s");
   //Call fetch
@@ -87,3 +121,5 @@ window.onload = () => {
 };
 
 //User Interactions
+
+// INITIALIZATIONS
