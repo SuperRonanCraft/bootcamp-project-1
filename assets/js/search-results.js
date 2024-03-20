@@ -93,13 +93,8 @@ function displaySearchResults(data) {
                 class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
                 href="#modal1"
               >
-                <i class="tiny material-icons">play_arrow</i>
+                <i class="tiny material-icons" data-imdb="${result.imdb}">play_arrow</i>
               </a>
-              <!-- Modal Structure -->
-              <div id="modal1" class="modal">
-                <div class="modal-content" data-imdb="${result.imdb}">
-                </div>
-              </div>
             </div>
             <!-- Movie about card -->
             <div class="card-content" id="card-content">
@@ -161,6 +156,11 @@ document.addEventListener("DOMContentLoaded", function () {
     onOpenStart: openModalEvent,
   };
   M.Modal.init(elems, options);
+});
+
+searchResultsEl.addEventListener("click", (event) => {
+  console.dir(event.target.parentElement);
+  console.log(event.target.parentElement.dataset);
 });
 
 //Inits
