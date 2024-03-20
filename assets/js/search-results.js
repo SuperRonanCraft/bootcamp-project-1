@@ -78,6 +78,19 @@ function displaySearchResults(data) {
   const divCardBody2El = document.createElement('div');
   const pEl = document.createElement('p');
   const p2El = document.createElement('p');
+
+  // CREATE
+  divRow.setAttribute('class', 'row');
+  divCardBodyEl.setAttribute('class', 'col-6');
+  imgEl.setAttribute('id', 'movie-image-small');
+  imgEl.setAttribute('alt', 'movie image');
+  imgEl.setAttribute('aria-label', 'small movie image');
+  divCardBody2El.setAttribute('class', 'col-6');
+  pEl.setAttribute('id', 'movie-name');
+  p2El.setAttribute('id', 'movie-year');
+
+  pEl.textContent = `${data.title}`; // add movie name
+  p2El.textContent = `${data.year}`; // add movie year
 }
 
 // Model
