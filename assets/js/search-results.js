@@ -2,6 +2,7 @@
 const apiKey = "b0cdfcde";
 const searchResultsEl = document.querySelector("#search-results");
 const searchButton = document.querySelector("#submitButton");
+const textInput = document.querySelector("#text-input");
 
 //Functions
 //Call OMDB and return a list of movie results
