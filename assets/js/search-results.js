@@ -41,7 +41,7 @@ function processResults(data) {
       //Poster URL
       poster: movieData.Poster,
     };
-    console.log(movie);
+    // console.log(movie);
     movies.push(movie);
   }
   displaySearchResults(movies);
@@ -63,14 +63,19 @@ function processTrailer(data) {
   const trailer = {
     exist: false,
   };
-  if (trailerInfo) {
+  if (trailerInfo !== null) {
     const trailer = {
       exist: true,
       thumbnail: trailerInfo.thumbnail,
       videoID: trailerInfo.youtube_video_id,
     };
-    console.log(trailer);
+    /* DEBUG CODE */
+    setYoutubeIFrame(trailer.videoID);
+    /**/
   } else {
+    /*
+    No Trailer Error
+    */
   }
   console.log(data);
 }
@@ -79,7 +84,7 @@ function displaySearchResults(data) {
   let imageCardContent = "";
 
   for (const result of data) {
-    imageCardContent += `<div class="img-card-wrapper">
+    imageCardContent += `<div class="img-card-wrapper" id="${result.imdb}">
           <!-- Image card box -->
           <div class="card">
             <!-- Card content -->
@@ -91,13 +96,8 @@ function displaySearchResults(data) {
                 class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
                 href="#modal1"
               >
-                <i class="tiny material-icons">play_arrow</i>
+                <i class="tiny material-icons" data-imdb="${result.imdb}">play_arrow</i>
               </a>
-              <!-- Modal Structure -->
-              <div id="modal1" class="modal">
-                <div class="modal-content">
-                </div>
-              </div>
             </div>
             <!-- Movie about card -->
             <div class="card-content" id="card-content">
@@ -129,9 +129,47 @@ function handleFormSubmit(event) {
   textInput.value = "";
 }
 
-// Model
-$(document).ready(function () {
+let player = null;
+//Youtube IFrame Video
+function setYoutubeIFrame(videoID) {
+  console.log(videoID);
+  player = new YT.Player("trailer-video", {
+    height: "390",
+    width: "640",
+    videoId: videoID,
+    playerVars: {
+      playsinline: 1,
+    },
+    events: {
+      onReady: (event) => {
+        event.target.playVideo();
+      },
+    },
+  });
+}
+
+function openModalEvent(event) {
+  /*Kadirs modal stuff*/
+  /* */
+}
+function closeModalEvent(event) {
+  if (player !== null) player.stopVideo();
+}
+
+// Modal Open Event
+document.addEventListener("DOMContentLoaded", function () {
   $(".modal").modal();
+  const elems = document.querySelectorAll(".modal");
+  const options = {
+    onOpenStart: openModalEvent,
+    onCloseStart: closeModalEvent,
+  };
+  M.Modal.init(elems, options);
+});
+
+searchResultsEl.addEventListener("click", (event) => {
+  const imdbID = event.target.dataset.imdb;
+  fetchTrailer(imdbID);
 });
 
 //Inits
