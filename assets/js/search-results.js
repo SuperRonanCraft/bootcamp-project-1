@@ -1,5 +1,5 @@
 //Depends
-const apiKey = 'b0cdfcde';
+const apiKey = "b0cdfcde";
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -13,9 +13,9 @@ function fetchSearch(movieTitle) {
       return response.json();
     })
     .then((data) => {
-      if (data.Response === 'True') processResults(data);
+      if (data.Response === "True") processResults(data);
       else {
-        //Error page redirect
+        window.location.assign("error.html");
       }
     });
 }
@@ -64,14 +64,13 @@ function processTrailer(data) {
     };
     console.log(trailer);
   } else {
-    //Error message/popup
   }
   console.log(data);
 }
 
 // Model
 $(document).ready(function () {
-  $('.modal').modal();
+  $(".modal").modal();
 });
 
 //Inits
@@ -79,7 +78,7 @@ window.onload = () => {
   //Generate a URL object
   const url = new URL(location.href);
   //Get the search parameter
-  const movieTitle = url.searchParams.get('s');
+  const movieTitle = url.searchParams.get("s");
   //Call fetch
   if (movieTitle !== null) fetchSearch(movieTitle);
   else {
