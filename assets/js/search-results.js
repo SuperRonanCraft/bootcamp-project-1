@@ -91,6 +91,15 @@ function displaySearchResults(data) {
 
   pEl.textContent = `${data.title}`; // add movie name
   p2El.textContent = `${data.year}`; // add movie year
+
+  // PLACE
+  searchResultsEl.appendChild(divRow);
+  divRow.appendChild(divCardBodyEl);
+  // place image to the left of movie information
+  divCardBodyEl.appendChild(imgEl);
+  divRow.appendChild(divCardBody2El);
+  divCardBody2El.appendChild(pEl);
+  divCardBody2El.appendChild(p2El);
 }
 
 // Model
