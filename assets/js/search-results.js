@@ -28,7 +28,7 @@ function fetchSearch(movieTitle) {
 function processResults(data) {
   // delete previous search results
   searchResultsEl.textContent = "";
-
+  let movies = [];
   for (const movieData of data.Search) {
     const movie = {
       //Movie Title
@@ -41,8 +41,9 @@ function processResults(data) {
       poster: movieData.Poster,
     };
     console.log(movie);
-    displaySearchResults(movie.imdb);
+    movies.push(movie);
   }
+  displaySearchResults(movies);
 }
 
 function fetchTrailer(imdbID) {
@@ -124,6 +125,7 @@ function displaySearchResults(data) {
           </div>
         </div>`;
   }
+  searchResultsEl.innerHTML = imageCardContent;
 }
 
 function handleFormSubmit(event) {
