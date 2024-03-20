@@ -27,7 +27,7 @@ function fetchSearch(movieTitle) {
 //Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
   // delete previous search results
-  // searchResultsEl.textContent = "";
+  searchResultsEl.textContent = "";
 
   for (const movieData of data.Search) {
     const movie = {
@@ -93,7 +93,6 @@ function displaySearchResults(data) {
 
   pEl.textContent = `${data.title}`; // add movie name
   p2El.textContent = `${data.year}`; // add movie year
-
   // PLACE
   searchResultsEl.appendChild(divRow);
   divRow.appendChild(divCardBodyEl);
@@ -120,10 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const elems = document.querySelectorAll(".modal");
   const options = {
     onOpenStart: (event) => {
-      console.log(event.parentElement);
-      // const parent = event.target.parent();
-      // console.log(parent);
-      // fetchTrailer()
+      const imdbID = event.parentElement.dataset.imdb;
+      console.log("IMDB ID: " + imdbID);
+      // fetchTrailer(imdbID)
     },
   };
   var instances = M.Modal.init(elems, options);
