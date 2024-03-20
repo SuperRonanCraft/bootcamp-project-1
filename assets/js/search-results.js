@@ -41,7 +41,7 @@ function processResults(data) {
       poster: movieData.Poster,
     };
     console.log(movie);
-    displaySearchResults();
+    displaySearchResults(movie.imdb);
     if (movieData === data.Search[0]) fetchTrailer(movie.imdb);
   }
 }
