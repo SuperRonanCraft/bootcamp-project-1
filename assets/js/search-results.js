@@ -24,7 +24,9 @@ function fetchSearch(movieTitle) {
 
 //Decompile OMDB fetch request to digestible object keys (title, year, imdb, poster)
 function processResults(data) {
-  // TODO: pCall to delete all previous search results
+  // delete previous search results
+  searchResultsEl.textContent = '';
+
   for (const movieData of data.Search) {
     const movie = {
       //Movie Title
