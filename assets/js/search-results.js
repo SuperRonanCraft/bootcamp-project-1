@@ -1,6 +1,7 @@
 //Depends
 const apiKey = 'b0cdfcde';
 const searchResultsEl = document.querySelector('#search-results');
+const searchButton = document.querySelector('#submitButton');
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -131,5 +132,6 @@ window.onload = () => {
 };
 
 //User Interactions
+searchButton.addEventListener('click', handleFormSubmit);
 
 // INITIALIZATIONS
