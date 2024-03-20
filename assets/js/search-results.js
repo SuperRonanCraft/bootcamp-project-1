@@ -1,7 +1,7 @@
 //Depends
-const apiKey = 'b0cdfcde';
-const searchResultsEl = document.querySelector('#search-results');
-const searchButton = document.querySelector('#submitButton');
+const apiKey = "b0cdfcde";
+const searchResultsEl = document.querySelector("#search-results");
+const searchButton = document.querySelector("#submitButton");
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -15,9 +15,11 @@ function fetchSearch(movieTitle) {
       return response.json();
     })
     .then((data) => {
-      if (data.Response === 'True') processResults(data);
-      else {
-        //Error page redirect
+      if (data.Response === "True") processResults(data);
+      else if (data.Response === "False") {
+        window.location.assign("error.html");
+      } else {
+        window.location.assign("error.html");
       }
     });
 }
@@ -68,29 +70,28 @@ function processTrailer(data) {
     };
     console.log(trailer);
   } else {
-    //Error message/popup
   }
   console.log(data);
 }
 
 function displaySearchResults(data) {
   // BUILD
-  const divRow = document.createElement('div');
-  const divCardBodyEl = document.createElement('div');
-  const imgEl = document.createElement('img');
-  const divCardBody2El = document.createElement('div');
-  const pEl = document.createElement('p');
-  const p2El = document.createElement('p');
+  const divRow = document.createElement("div");
+  const divCardBodyEl = document.createElement("div");
+  const imgEl = document.createElement("img");
+  const divCardBody2El = document.createElement("div");
+  const pEl = document.createElement("p");
+  const p2El = document.createElement("p");
 
   // CREATE
-  divRow.setAttribute('class', 'row');
-  divCardBodyEl.setAttribute('class', 'col-6');
-  imgEl.setAttribute('id', 'movie-image-small');
-  imgEl.setAttribute('alt', 'movie image');
-  imgEl.setAttribute('aria-label', 'small movie image');
-  divCardBody2El.setAttribute('class', 'col-6');
-  pEl.setAttribute('id', 'movie-name');
-  p2El.setAttribute('id', 'movie-year');
+  divRow.setAttribute("class", "row");
+  divCardBodyEl.setAttribute("class", "col-6");
+  imgEl.setAttribute("id", "movie-image-small");
+  imgEl.setAttribute("alt", "movie image");
+  imgEl.setAttribute("aria-label", "small movie image");
+  divCardBody2El.setAttribute("class", "col-6");
+  pEl.setAttribute("id", "movie-name");
+  p2El.setAttribute("id", "movie-year");
 
   pEl.textContent = `${data.title}`; // add movie name
   p2El.textContent = `${data.year}`; // add movie year
@@ -113,12 +114,12 @@ function handleFormSubmit(event) {
   // Set user input value to local storage
   localStorage.setItem('Movies', textInput.value);
   // reset input field
-  textInput.value = '';
+  textInput.value = "";
 }
 
 // Model
 $(document).ready(function () {
-  $('.modal').modal();
+  $(".modal").modal();
 });
 
 //Inits
@@ -127,7 +128,7 @@ window.onload = () => {
   const url = new URL(location.href);
 
   //Get the search parameter
-  const movieTitle = url.searchParams.get('s');
+  const movieTitle = url.searchParams.get("s");
   //Call fetch
   if (movieTitle !== null) fetchSearch(movieTitle);
   else {
@@ -136,6 +137,6 @@ window.onload = () => {
 };
 
 //User Interactions
-searchButton.addEventListener('click', handleFormSubmit);
+searchButton.addEventListener("click", handleFormSubmit);
 
 // INITIALIZATIONS
