@@ -28,7 +28,7 @@ function fetchSearch(movieTitle) {
 function processResults(data) {
   // delete previous search results
   searchResultsEl.textContent = "";
-
+  let movies = [];
   for (const movieData of data.Search) {
     const movie = {
       //Movie Title
@@ -41,9 +41,9 @@ function processResults(data) {
       poster: movieData.Poster,
     };
     console.log(movie);
-    displaySearchResults(movie.imdb);
-    if (movieData === data.Search[0]) fetchTrailer(movie.imdb);
+    movies.push(movie);
   }
+  displaySearchResults(movies);
 }
 
 function fetchTrailer(imdbID) {
@@ -75,35 +75,46 @@ function processTrailer(data) {
 }
 
 function displaySearchResults(data) {
-  // BUILD
-  const divRow = document.createElement("div");
-  const divCardBodyEl = document.createElement("div");
-  const imgEl = document.createElement("img");
-  const divCardBody2El = document.createElement("div");
-  const pEl = document.createElement("p");
-  const p2El = document.createElement("p");
+  let imageCardContent = "";
 
-  // CREATE
-  divRow.setAttribute("class", "row");
-  divCardBodyEl.setAttribute("class", "col-6");
-  imgEl.setAttribute("id", "movie-image-small");
-  imgEl.setAttribute("alt", "movie image");
-  imgEl.setAttribute("aria-label", "small movie image");
-  divCardBody2El.setAttribute("class", "col-6");
-  pEl.setAttribute("id", "movie-name");
-  p2El.setAttribute("id", "movie-year");
-
-  pEl.textContent = `${data.title}`; // add movie name
-  p2El.textContent = `${data.year}`; // add movie year
-
-  // PLACE
-  searchResultsEl.appendChild(divRow);
-  divRow.appendChild(divCardBodyEl);
-  // place image to the left of movie information
-  divCardBodyEl.appendChild(imgEl);
-  divRow.appendChild(divCardBody2El);
-  divCardBody2El.appendChild(pEl);
-  divCardBody2El.appendChild(p2El);
+  for (const result of data) {
+    imageCardContent += `<div class="img-card-wrapper">
+          <!-- Image card box -->
+          <div class="card">
+            <!-- Card content -->
+            <div class="card-image">
+              <!-- Movie img -->
+              <img src="${result.poster}" />
+              <!-- Model button -->
+              <a
+                class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
+                href="#modal1"
+              >
+                <i class="tiny material-icons">play_arrow</i>
+              </a>
+              <!-- Modal Structure -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                </div>
+              </div>
+            </div>
+            <!-- Movie about card -->
+            <div class="card-content" id="card-content">
+              <!-- Movie title wrapper -->
+              <div class="title-wrapper" id="title-wrapper">
+                <!-- Movie title -->
+                <h2 id="movie-title">${result.title}</h2>
+                <!-- Genre Container -->
+                <div class="genre-container" id="genre-container">
+                  <!-- Genre titles -->
+                  <p id="year">${result.year}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+  }
+  searchResultsEl.innerHTML = imageCardContent;
 }
 
 function handleFormSubmit(event) {

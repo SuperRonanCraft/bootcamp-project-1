@@ -1,6 +1,6 @@
 /* Linking style.css to user root variables */
 
-@import url('./style.css');
+@import url("./style.css");
 
 /* Header */
 
@@ -34,22 +34,14 @@
 
 /* Image card content It will divede to 3 parts */
 .img-card-wrapper .card-content {
-  display: none;
+  display: flex;
   justify-content: flex-start;
   align-items: start;
   flex-direction: column;
   padding: 3px;
-  height: 100%;
   background-color: var(--secondaryBackgroundColor);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-
-  /* Transiton not working sytanx is corret something is wrong later i will back */
-  transition: all ease 2s; /* Corrected typo */
-}
-
-.img-card-wrapper .card:hover .card-content {
-  display: flex;
 }
 
 /* 1st part will contain Movie Title and Genres */
