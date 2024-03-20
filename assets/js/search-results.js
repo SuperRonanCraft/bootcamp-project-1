@@ -97,7 +97,7 @@ function displaySearchResults(data) {
               </a>
               <!-- Modal Structure -->
               <div id="modal1" class="modal">
-                <div class="modal-content">
+                <div class="modal-content" data-imdb="${result.imdb}">
                 </div>
               </div>
             </div>
@@ -148,9 +148,19 @@ function setYoutubeIFrame(elementID, videoID) {
   });
 }
 
-// Model
-$(document).ready(function () {
+function openModalEvent(event) {
+  /*Kadirs modal stuff*/
+  /* */
+}
+
+// Modal Open Event
+document.addEventListener("DOMContentLoaded", function () {
   $(".modal").modal();
+  const elems = document.querySelectorAll(".modal");
+  const options = {
+    onOpenStart: openModalEvent,
+  };
+  M.Modal.init(elems, options);
 });
 
 //Inits
