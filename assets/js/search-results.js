@@ -16,7 +16,9 @@ function fetchSearch(movieTitle) {
     })
     .then((data) => {
       if (data.Response === "True") processResults(data);
-      else {
+      else if (data.Response === "False") {
+        window.location.assign("error.html");
+      } else {
         window.location.assign("error.html");
       }
     });
