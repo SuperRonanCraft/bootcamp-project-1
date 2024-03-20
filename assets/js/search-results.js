@@ -128,7 +128,7 @@ function handleFormSubmit(event) {
   textInput.value = "";
 }
 
-let player;
+let player = null;
 //Youtube IFrame Video
 function setYoutubeIFrame(videoID) {
   console.log(videoID);
@@ -152,7 +152,7 @@ function openModalEvent(event) {
   /* */
 }
 function closeModalEvent(event) {
-  player.stopVideo();
+  if (player !== null) player.stopVideo();
 }
 
 // Modal Open Event
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const elems = document.querySelectorAll(".modal");
   const options = {
     onOpenStart: openModalEvent,
-    onCloseEnd: closeModalEvent,
+    onCloseStart: closeModalEvent,
   };
   M.Modal.init(elems, options);
 });
