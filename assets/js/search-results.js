@@ -106,8 +106,10 @@ function displaySearchResults(data) {
 function handleFormSubmit(event) {
   event.preventDefault();
   const searchInput = textInput.value;
+  // insert searchinput as a parameter
   fetchSearch(searchInput);
-
+  // Set user input value to local storage
+  localStorage.setItem('Movies', textInput.value);
   // reset input field
   textInput.value = '';
 }

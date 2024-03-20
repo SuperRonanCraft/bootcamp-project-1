@@ -9,13 +9,10 @@ function handleFormSubmit(event) {
   event.preventDefault();
   // insert file source here
   const src = 'results.html';
-
   // assign value from
   location.assign(`${src}?s=${textInput.value}`);
-
-  // Settin user inpu value to local storage
+  // Set user input value to local storage
   localStorage.setItem('Movies', textInput.value);
-
   // reset input field
   textInput.value = '';
 }
