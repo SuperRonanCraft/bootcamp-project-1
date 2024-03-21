@@ -77,10 +77,10 @@ function processTrailer(data) {
     setYoutubeIFrame(trailer.videoID);
     /**/
   } else {
-      const errorText = document.createElement("h2");
+    const errorText = document.createElement("h2");
     errorText.textContent = "No Trailer Found";
-    
-    }
+    errorText.setAttribute("id", "trailerError");
+    modalBox.appendChild(errorText);
   }
   console.log(data);
 }
@@ -152,8 +152,6 @@ function setYoutubeIFrame(videoID) {
       },
     },
   });
-
-  
 }
 
 function openModalEvent(event) {
