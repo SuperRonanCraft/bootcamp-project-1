@@ -171,3 +171,7 @@ header {
   top: 40%;
   left: 40%;
 }
+
+#goBack-button {
+  cursor: pointer;
+}
