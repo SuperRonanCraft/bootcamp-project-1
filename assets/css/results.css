@@ -162,3 +162,8 @@ header {
   padding: 10px;
   border-radius: 20px;
 }
+
+#trailerError {
+  margin: auto;
+  text-align: center;
+}
