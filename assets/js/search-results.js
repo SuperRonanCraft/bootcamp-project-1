@@ -6,7 +6,7 @@ const textInput = document.querySelector("#text-input");
 const modalTitle = document.querySelector("#movie-video-title");
 const modalYear = document.querySelector("#movie-video-year");
 const modalCloseButton = document.querySelector("#modal-close-button");
-const 
+const modalBox = document.getElementById("modal1");
 
 //Functions
 //Call OMDB and return a list of movie results
