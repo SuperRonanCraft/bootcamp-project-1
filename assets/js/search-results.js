@@ -77,9 +77,10 @@ function processTrailer(data) {
     setYoutubeIFrame(trailer.videoID);
     /**/
   } else {
-    /*
-    No Trailer Error
-    */
+      const errorText = document.createElement("h2");
+    errorText.textContent = "No Trailer Found";
+    
+    }
   }
   console.log(data);
 }
@@ -152,10 +153,7 @@ function setYoutubeIFrame(videoID) {
     },
   });
 
-  if ((player.videoId = null)) {
-    const errorText = document.createElement("h2");
-    cons;
-  }
+  
 }
 
 function openModalEvent(event) {
