@@ -62,6 +62,9 @@ function fetchTrailer(imdbID) {
     })
     .then((data) => {
       processTrailer(data);
+    })
+    .catch((error) => {
+      trailerError(false);
     });
 }
 
@@ -78,8 +81,14 @@ function processTrailer(data) {
     };
     setYoutubeIFrame(trailer.videoID);
   }
+  trailerError(trailer.exist);
+
+  console.log(data);
+}
+
+function trailerError(exists) {
   //Trailer Error Text
-  if (trailer.exist) {
+  if (exists) {
     if (document.getElementById("trailerError"))
       document.getElementById("trailerError").remove();
   } else {
@@ -91,7 +100,6 @@ function processTrailer(data) {
       modalBox.appendChild(errorText);
     }
   }
-  console.log(data);
 }
 
 function displaySearchResults(data) {
@@ -106,11 +114,11 @@ function displaySearchResults(data) {
               <!-- Movie img -->
               <img src="${result.poster}" />
               <!-- Model button -->
-              <a
-                class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
-                href="#modal1"
-              >
-                <i class="tiny material-icons" data-imdb="${result.imdb}">play_arrow</i>
+              <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
+                href="#modal1">
+                <i class="movieButton tiny material-icons" data-movie='${JSON.stringify(
+                  result
+                )}'>play_arrow</i>
               </a>
             </div>
             <!-- Movie about card -->
@@ -167,7 +175,11 @@ function openModalEvent(event) {
   /* */
 }
 function closeModalEvent(event) {
-  if (player !== null) player.stopVideo();
+  try {
+    if (player !== null) player.stopVideo();
+  } catch (error) {
+    //Nothing...
+  }
 }
 
 // Modal Open Event
@@ -175,15 +187,20 @@ document.addEventListener("DOMContentLoaded", function () {
   $(".modal").modal();
   const elems = document.querySelectorAll(".modal");
   const options = {
-    onOpenStart: openModalEvent,
+    // onOpenStart: openModalEvent,
     onCloseStart: closeModalEvent,
   };
   M.Modal.init(elems, options);
 });
 
 searchResultsEl.addEventListener("click", (event) => {
-  const imdbID = event.target.dataset.imdb;
-  fetchTrailer(imdbID);
+  if (event.target.classList.contains("movieButton")) {
+    console.log(event.target.dataset);
+    const movieData = JSON.parse(event.target.dataset.movie);
+    fetchTrailer(movieData.imdb);
+    modalTitle.textContent = movieData.title;
+    modalYear.textContent = movieData.year;
+  }
 });
 
 //Inits
