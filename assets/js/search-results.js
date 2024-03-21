@@ -115,7 +115,9 @@ function displaySearchResults(data) {
               <img src="${result.poster}" />
               <!-- Model button -->
               <a class="btn-floating halfway-fab waves-effect waves-light red">
-                <i class="movieButton tiny material-icons" data-imdb="${result.imdb}">play_arrow</i>
+                <i class="movieButton tiny material-icons" data-movie='${JSON.stringify(
+                  result
+                )}'>play_arrow</i>
               </a>
             </div>
             <!-- Movie about card -->
@@ -186,8 +188,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 searchResultsEl.addEventListener("click", (event) => {
   if (event.target.classList.contains("movieButton")) {
-    const imdbID = event.target.dataset.imdb;
-    fetchTrailer(imdbID);
+    console.log(event.target.dataset);
+    const movieData = JSON.parse(event.target.dataset.movie);
+    fetchTrailer(movieData.imdb);
+    modalTitle.textContent = movieData.title;
+    modalYear.textContent = movieData.year;
+    modalBox.classList.toggle("");
   }
 });
 
