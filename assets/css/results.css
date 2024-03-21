@@ -4,9 +4,40 @@
 
 /* Header */
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
 /* * {
   border: 1px solid red;
 } */
+
+#search-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#background {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  object-position: center;
+}
+#background img {
+  position: absolute;
+  top: 100px;
+  object-fit: cover;
+  height: 1000px;
+  width: 800px;
+  opacity: 0.7;
+}
 
 /* Card wrapper */
 .img-card-wrapper {
@@ -14,25 +45,28 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin: 80px;
 }
 
 /* Card size */
 .card {
   height: 300px;
-  width: 400px;
+  width: 300px;
   border-radius: 20px;
 }
 /* card-Image height */
 .card-image {
   height: 100%;
+  border-radius: 20px;
 }
 /* Image will cover the content */
-.card-image img {
+.card .card-image img {
   height: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-/* Image card content It will divede to 3 parts */
+/* Image card content  */
 .img-card-wrapper .card-content {
   display: flex;
   justify-content: flex-start;
@@ -44,19 +78,21 @@
   border-bottom-right-radius: 20px;
 }
 
-/* 1st part will contain Movie Title and Genres */
+/* Movie Title and Genres */
 .card-content .title-wrapper {
   background-color: var(--secondaryBackgroundColor);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  border-radius: 20px;
 }
 /* Movie title */
 .card-content h2 {
   background-color: var(--secondaryBackgroundColor);
   margin-top: 30px;
   padding: 10px;
+  font-size: 16px;
 }
 
 /* Genre continaer */
@@ -76,31 +112,6 @@
   color: var(--secondaryBackgroundColor);
 }
 
-/* Second part will be diveder */
-
-/* Divder */
-.diveder {
-  position: absolute;
-  top: 400px;
-  left: 20px;
-  width: 90%;
-  height: 2px;
-  background-color: #eee;
-}
-/* Third part will be Movie summary */
-
-/* Summary  */
-.card-content .movie-summary-wrapper {
-  background-color: var(--secondaryBackgroundColor);
-}
-
-.card-content .movie-summary-wrapper p {
-  background-color: var(--secondaryBackgroundColor);
-  margin-top: 60px;
-  padding: 10px;
-  font-size: 1rem;
-}
-
 .btn-floating i {
   background: transparent;
 }
@@ -114,15 +125,40 @@
 }
 
 .modal .modal-content {
+  display: flex;
+  justify-content: center;
   overflow: hidden;
-  padding: 0;
+  padding: 10px;
   margin: 0;
 }
 /* Video sizing */
-.modal .modal-content video {
-  margin: 0;
+.modal .modal-content #trailer-video {
+  margin: 10px;
   padding: 0;
   width: 100%;
   height: 400px;
   object-fit: cover;
+}
+
+.movie-video-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+#modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--secondaryBackgroundColor);
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.movie-video-info .movie-video-year {
+  background-color: var(--secondaryBackgroundColor);
+  padding: 10px;
+  border-radius: 20px;
 }

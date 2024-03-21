@@ -3,7 +3,10 @@ const apiKey = "b0cdfcde";
 const searchResultsEl = document.querySelector("#search-results");
 const searchButton = document.querySelector("#submitButton");
 const textInput = document.querySelector("#text-input");
-const modalErrorText = document.getElementById("modal1");
+const modalTitle = document.querySelector("#movie-video-title");
+const modalYear = document.querySelector("#movie-video-year");
+const modalCloseButton = document.querySelector("#modal-close-button");
+const 
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -116,6 +119,7 @@ function displaySearchResults(data) {
           </div>
         </div>`;
   }
+
   searchResultsEl.innerHTML = imageCardContent;
 }
 
