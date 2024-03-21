@@ -62,6 +62,9 @@ function fetchTrailer(imdbID) {
     })
     .then((data) => {
       processTrailer(data);
+    })
+    .catch((error) => {
+      trailerError(false);
     });
 }
 
@@ -78,8 +81,14 @@ function processTrailer(data) {
     };
     setYoutubeIFrame(trailer.videoID);
   }
+  trailerError(trailer.exist);
+
+  console.log(data);
+}
+
+function trailerError(exists) {
   //Trailer Error Text
-  if (trailer.exist) {
+  if (exists) {
     if (document.getElementById("trailerError"))
       document.getElementById("trailerError").remove();
   } else {
@@ -91,7 +100,6 @@ function processTrailer(data) {
       modalBox.appendChild(errorText);
     }
   }
-  console.log(data);
 }
 
 function displaySearchResults(data) {
@@ -167,7 +175,11 @@ function openModalEvent(event) {
   /* */
 }
 function closeModalEvent(event) {
-  if (player !== null) player.stopVideo();
+  try {
+    if (player !== null) player.stopVideo();
+  } catch (error) {
+    //Nothing...
+  }
 }
 
 // Modal Open Event

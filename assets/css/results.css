@@ -126,6 +126,7 @@ header {
 
 .modal .modal-content {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
   overflow: hidden;
   padding: 10px;
