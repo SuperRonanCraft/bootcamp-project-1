@@ -73,14 +73,16 @@ function processTrailer(data) {
       thumbnail: trailerInfo.thumbnail,
       videoID: trailerInfo.youtube_video_id,
     };
-    /* DEBUG CODE */
     setYoutubeIFrame(trailer.videoID);
-    /**/
+    if (document.getElementById("trailerError"))
+      document.getElementById("trailerError").remove();
   } else {
-    const errorText = document.createElement("h2");
-    errorText.textContent = "No Trailer Found";
-    errorText.setAttribute("id", "trailerError");
-    modalBox.appendChild(errorText);
+    if (document.getElementById("trailerError") === null) {
+      const errorText = document.createElement("h2");
+      errorText.textContent = "No Trailer Found";
+      errorText.setAttribute("id", "trailerError");
+      modalBox.appendChild(errorText);
+    }
   }
   console.log(data);
 }
