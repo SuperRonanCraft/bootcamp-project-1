@@ -114,7 +114,8 @@ function displaySearchResults(data) {
               <!-- Movie img -->
               <img src="${result.poster}" />
               <!-- Model button -->
-              <a class="btn-floating halfway-fab waves-effect waves-light red">
+              <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
+                href="#modal1">
                 <i class="movieButton tiny material-icons" data-movie='${JSON.stringify(
                   result
                 )}'>play_arrow</i>
@@ -184,6 +185,12 @@ function closeModalEvent(event) {
 // Modal Open Event
 document.addEventListener("DOMContentLoaded", function () {
   $(".modal").modal();
+  const elems = document.querySelectorAll(".modal");
+  const options = {
+    // onOpenStart: openModalEvent,
+    onCloseStart: closeModalEvent,
+  };
+  M.Modal.init(elems, options);
 });
 
 searchResultsEl.addEventListener("click", (event) => {
@@ -193,7 +200,6 @@ searchResultsEl.addEventListener("click", (event) => {
     fetchTrailer(movieData.imdb);
     modalTitle.textContent = movieData.title;
     modalYear.textContent = movieData.year;
-    modalBox.classList.toggle("");
   }
 });
 
