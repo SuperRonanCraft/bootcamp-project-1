@@ -5,7 +5,7 @@
   /* PrimaryBackround */
   --primaryBackgroundColor: #f9da8a;
   /* SecondaryBackround */
-  --secondaryBackgroundColor: #1e1f1e;
+  --secondaryBackgroundColor: rgb(30, 31, 30);
   /* Fontcolor light */
   --fontColor: #fdfcfc;
   /* FontColor lighter*/
@@ -106,4 +106,56 @@ footer a {
 #popcornImg {
   height: 500px;
   width: 400px;
+}
+
+.previousSearch {
+  position: relative;
+  left: 15px;
+  padding: 3px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+#previousSearch-button {
+  background-color: transparent;
+  cursor: pointer;
+  transition: all ease 2s;
+}
+
+#previousSearch-button:hover {
+  transform: rotate(360deg);
+}
+
+.previousSearchBox {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 65%;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 220px;
+  width: 200px;
+  background-color: var(--secondaryBackgroundColor);
+  border-radius: 20px;
+  z-index: 1;
+}
+.previousSearchBox ul {
+  width: 100%;
+  background-color: transparent;
+}
+
+.previousSearchBox ul li {
+  margin: 10px;
+  background-color: var(--primaryBackgroundColor);
+  padding: 5px;
+  width: 90%;
+  height: 30px;
+  border-radius: 20px;
+  transition: all ease 2s;
+}
+
+.display {
+  display: flex;
 }
