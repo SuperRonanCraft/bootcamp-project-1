@@ -3,6 +3,7 @@ const apiKey = "b0cdfcde";
 const searchResultsEl = document.querySelector("#search-results");
 const searchButton = document.querySelector("#submitButton");
 const textInput = document.querySelector("#text-input");
+const modalErrorText = document.getElementById("modal1");
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -144,6 +145,9 @@ function setYoutubeIFrame(videoID) {
       onReady: (event) => {
         event.target.playVideo();
       },
+    },
+    if(videoID = null) {
+      mod;
     },
   });
 }
