@@ -174,4 +174,10 @@ header {
 
 #goBack-button {
   cursor: pointer;
+  margin-left: 10px;
+}
+
+.previousSearchBox {
+  top: 20%;
+  left: 50%;
 }
