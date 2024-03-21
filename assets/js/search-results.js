@@ -7,6 +7,7 @@ const modalTitle = document.querySelector("#movie-video-title");
 const modalYear = document.querySelector("#movie-video-year");
 const modalCloseButton = document.querySelector("#modal-close-button");
 const modalBox = document.getElementById("modal1");
+const goBackButton = document.querySelector("#goBack-button");
 
 //Data
 let player = null;
@@ -201,6 +202,11 @@ searchResultsEl.addEventListener("click", (event) => {
     modalTitle.textContent = movieData.title;
     modalYear.textContent = movieData.year;
   }
+});
+
+goBackButton.addEventListener("click", () => {
+  console.log("clicked");
+  window.location.href = "/index.html";
 });
 
 //Inits
