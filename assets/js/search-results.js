@@ -6,6 +6,10 @@ const textInput = document.querySelector("#text-input");
 const modalTitle = document.querySelector("#movie-video-title");
 const modalYear = document.querySelector("#movie-video-year");
 const modalCloseButton = document.querySelector("#modal-close-button");
+const modalBox = document.getElementById("modal1");
+
+//Data
+let player = null;
 
 //Functions
 //Call OMDB and return a list of movie results
@@ -63,22 +67,29 @@ function fetchTrailer(imdbID) {
 
 function processTrailer(data) {
   const trailerInfo = data.trailer;
-  const trailer = {
+  let trailer = {
     exist: false,
   };
   if (trailerInfo !== null) {
-    const trailer = {
+    trailer = {
       exist: true,
       thumbnail: trailerInfo.thumbnail,
       videoID: trailerInfo.youtube_video_id,
     };
-    /* DEBUG CODE */
     setYoutubeIFrame(trailer.videoID);
-    /**/
+  }
+  //Trailer Error Text
+  if (trailer.exist) {
+    if (document.getElementById("trailerError"))
+      document.getElementById("trailerError").remove();
   } else {
-    /*
-    No Trailer Error
-    */
+    if (player) player.destroy();
+    if (document.getElementById("trailerError") === null) {
+      const errorText = document.createElement("h2");
+      errorText.textContent = "No Trailer Found";
+      errorText.setAttribute("id", "trailerError");
+      modalBox.appendChild(errorText);
+    }
   }
   console.log(data);
 }
@@ -133,7 +144,6 @@ function handleFormSubmit(event) {
   textInput.value = "";
 }
 
-let player = null;
 //Youtube IFrame Video
 function setYoutubeIFrame(videoID) {
   console.log(videoID);
