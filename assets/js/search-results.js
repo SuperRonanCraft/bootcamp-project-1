@@ -146,10 +146,12 @@ function setYoutubeIFrame(videoID) {
         event.target.playVideo();
       },
     },
-    if(videoID = null) {
-      mod;
-    },
   });
+
+  if ((player.videoId = null)) {
+    const errorText = document.createElement("h2");
+    cons;
+  }
 }
 
 function openModalEvent(event) {
