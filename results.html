@@ -10,9 +10,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Materialize icon link -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/results.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/results.css" />
   </head>
   <body>
     <header>
@@ -29,10 +33,19 @@
       <div id="modal1" class="modal">
         <div class="modal-content">
           <div id="trailer-video"></div>
+          <div class="movie-video-info">
+            <h2 class="movie-video-title" id="movie-video-title">Avengers</h2>
+            <p class="movie-video-year" id="movie-video-year">2018</p>
+            <i id="modal-close-button" class="material-icons modal-close">close</i>
+          </div>
         </div>
       </div>
+      <div class="background" id="background"><img src="./assets/images/popcorn.png" alt="backgroundimg"></div>  
+      
       <!-- Search result div will take the data from api -->
-      <div id="search-results"></div>
+      <div id="search-results">
+  
+      </div>
     </main>
     <footer>
       <h3>&copy 2024 KANE Devs | All Right Reserved</h3>
