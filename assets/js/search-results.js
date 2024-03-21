@@ -114,11 +114,8 @@ function displaySearchResults(data) {
               <!-- Movie img -->
               <img src="${result.poster}" />
               <!-- Model button -->
-              <a
-                class="btn-floating halfway-fab waves-effect waves-light red modal-trigger"
-                href="#modal1"
-              >
-                <i class="tiny material-icons" data-imdb="${result.imdb}">play_arrow</i>
+              <a class="btn-floating halfway-fab waves-effect waves-light red">
+                <i class="movieButton tiny material-icons" data-imdb="${result.imdb}">play_arrow</i>
               </a>
             </div>
             <!-- Movie about card -->
@@ -185,17 +182,13 @@ function closeModalEvent(event) {
 // Modal Open Event
 document.addEventListener("DOMContentLoaded", function () {
   $(".modal").modal();
-  const elems = document.querySelectorAll(".modal");
-  const options = {
-    onOpenStart: openModalEvent,
-    onCloseStart: closeModalEvent,
-  };
-  M.Modal.init(elems, options);
 });
 
 searchResultsEl.addEventListener("click", (event) => {
-  const imdbID = event.target.dataset.imdb;
-  fetchTrailer(imdbID);
+  if (event.target.classList.contains("movieButton")) {
+    const imdbID = event.target.dataset.imdb;
+    fetchTrailer(imdbID);
+  }
 });
 
 //Inits
