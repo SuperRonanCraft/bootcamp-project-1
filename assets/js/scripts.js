@@ -17,7 +17,9 @@ function handleFormSubmit(event) {
   // Set user input value to local storage
   let movies = [];
   movies = JSON.parse(localStorage.getItem("Movies")) || [];
-  movies.push(textInput.value);
+  if (textInput.value.trim() !== "") {
+    movies.push(textInput.value);
+  }
   console.log(movies);
   localStorage.setItem("Movies", JSON.stringify(movies));
   // reset input field
