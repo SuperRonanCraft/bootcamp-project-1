@@ -1,8 +1,8 @@
 //Depends
 const apiKey = "b0cdfcde";
 const searchResultsEl = document.querySelector("#search-results");
-const searchButton = document.querySelector("#submitButton");
-const textInput = document.querySelector("#text-input");
+// const searchButton = document.querySelector("#submitButton");
+// const textInput = document.querySelector("#text-input");
 const modalTitle = document.querySelector("#movie-video-title");
 const modalYear = document.querySelector("#movie-video-year");
 const modalCloseButton = document.querySelector("#modal-close-button");
@@ -148,7 +148,14 @@ function handleFormSubmit(event) {
   // insert searchinput as a parameter
   fetchSearch(searchInput);
   // Set user input value to local storage
-  localStorage.setItem("Movies", textInput.value);
+  let movies = JSON.parse(localStorage.getItem("Movies")) || [];
+  movies.push(textInput.value);
+  if (movies.textContent) {
+    localStorage.setItem("Movies", JSON.stringify(movies));
+  }
+  return;
+
+  console.log(movies);
   // reset input field
   textInput.value = "";
 }
@@ -171,10 +178,6 @@ function setYoutubeIFrame(videoID) {
   });
 }
 
-function openModalEvent(event) {
-  /*Kadirs modal stuff*/
-  /* */
-}
 function closeModalEvent(event) {
   try {
     if (player !== null) player.stopVideo();
@@ -205,7 +208,6 @@ searchResultsEl.addEventListener("click", (event) => {
 });
 
 goBackButton.addEventListener("click", () => {
-  console.log("clicked");
   window.location.href = "/index.html";
 });
 
@@ -224,6 +226,6 @@ window.onload = () => {
 };
 
 //User Interactions
-searchButton.addEventListener("click", handleFormSubmit);
+// searchButton.addEventListener("click", handleFormSubmit);
 
 // INITIALIZATIONS
