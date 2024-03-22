@@ -86,20 +86,55 @@ function processTrailer(data) {
   console.log(data);
 }
 
-function trailerError(exists) {
+async function trailerError(exists) {
   //Trailer Error Text
   if (exists) {
     if (document.getElementById("trailerError"))
       document.getElementById("trailerError").remove();
   } else {
-    if (player) player.destroy();
-    if (document.getElementById("trailerError") === null) {
-      const errorText = document.createElement("h2");
-      errorText.textContent = "No Trailer Found";
-      errorText.setAttribute("id", "trailerError");
-      modalBox.appendChild(errorText);
+    if (player) {
+      player.destroy();
+      player = null;
+    }
+
+    //Async call to get promise of dad joke
+    addError(await getDadJoke());
+
+    function addError(joke) {
+      let errorText;
+      if (document.getElementById("trailerError") === null) {
+        errorText = document.createElement("div");
+        errorText.setAttribute("style", `style="text-align: center"`);
+        errorText.setAttribute("id", "trailerError");
+        modalBox.appendChild(errorText);
+      } else {
+        errorText = document.getElementById("trailerError");
+      }
+
+      errorText.innerHTML = `<h2>No Trailer Found</h2><h3>${joke}</h3>`;
     }
   }
+}
+
+//Returns a promise
+function getDadJoke() {
+  const url = `https://icanhazdadjoke.com/search?term=movie`;
+  return fetch(url, {
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const jokeArray = data.results;
+      console.log(jokeArray);
+      const rngjoke =
+        jokeArray[Math.floor(Math.random() * jokeArray.length)].joke;
+      // console.log(rngjoke);
+      return rngjoke;
+    });
 }
 
 function displaySearchResults(data) {
