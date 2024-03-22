@@ -108,6 +108,7 @@ footer a {
   width: 400px;
 }
 
+/* previous search */
 .previousSearch {
   position: relative;
   left: 15px;
@@ -115,6 +116,8 @@ footer a {
   border-radius: 20px;
   margin: 5px;
 }
+
+/* history button */
 
 #previousSearch-button {
   background-color: transparent;
@@ -129,13 +132,14 @@ footer a {
 .previousSearchBox {
   display: none;
   position: absolute;
-  top: 30%;
-  left: 65%;
+  top: 38%;
+  left: 46%;
   padding: 5px;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
   margin: 10px;
-  height: 220px;
+  height: 230px;
   width: 200px;
   background-color: var(--secondaryBackgroundColor);
   border-radius: 20px;
@@ -147,13 +151,21 @@ footer a {
 }
 
 .previousSearchBox ul li {
-  margin: 10px;
+  margin: 8px;
   background-color: var(--primaryBackgroundColor);
   padding: 5px;
   width: 90%;
   height: 30px;
   border-radius: 20px;
   transition: all ease 2s;
+}
+
+.previousSearchBox h3 {
+  background-color: var(--secondaryBackgroundColor);
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid var(--fontColor);
 }
 
 .display {

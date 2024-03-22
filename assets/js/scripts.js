@@ -15,11 +15,16 @@ function handleFormSubmit(event) {
   // assign value from
   location.assign(`${src}?s=${textInput.value}`);
   // Set user input value to local storage
-  let movies = JSON.parse(localStorage.getItem("Movies")) || [];
-  movies.push(textInput.value);
+  let movies = [];
+  movies = JSON.parse(localStorage.getItem("Movies")) || [];
+  if (textInput.value.trim() !== "") {
+    movies.push(textInput.value);
+  }
+  console.log(movies);
   localStorage.setItem("Movies", JSON.stringify(movies));
   // reset input field
   textInput.value = "";
+
   console.log(movies);
 }
 

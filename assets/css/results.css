@@ -171,3 +171,29 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+#goBack-button {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.previousSearchBox {
+  top: 20%;
+  left: 50%;
+  margin: 0;
+}
+
+.previousSearchBox h3 {
+  margin: 0;
+  padding: 0;
+}
+
+#text-input {
+  border: none;
+  text-decoration: none;
+  box-shadow: none;
+  background-color: none;
+}
+#text-input:focus {
+  outline: none;
+}
