@@ -93,7 +93,7 @@ async function trailerError(exists) {
     if (document.getElementById("trailerError"))
       document.getElementById("trailerError").remove();
   } else {
-    if (player) {
+    if (player !== null) {
       player.destroy();
       player = null;
     }
@@ -197,6 +197,10 @@ function handleFormSubmit(event) {
 
 //Youtube IFrame Video
 function setYoutubeIFrame(videoID) {
+  if (player !== null) {
+    player.destroy();
+    player = null;
+  }
   console.log(videoID);
   player = new YT.Player("trailer-video", {
     height: "390",
